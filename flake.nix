@@ -23,6 +23,12 @@
           # ProtonVPN's GUI talks to NetworkManager for the WireGuard/OpenVPN tunnels
           networking.networkmanager.enable = true;
           environment.systemPackages = [ pkgs.protonvpn-gui ];
+
+          users.users.user = {
+          isNormalUser = true;
+          extraGroups = [ "wheel" "networkmanager" ];
+          initialPassword = "changeme";
+          };
         })
       ];
     };
