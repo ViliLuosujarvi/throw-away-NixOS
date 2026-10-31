@@ -10,6 +10,14 @@
           system.stateVersion = "25.05";
           boot.loader.systemd-boot.enable = true;
 
+          # Sway (Wayland tiling WM)
+          programs.sway = {
+            enable = true;
+            wrapperFeatures.gtk = true;
+          };
+          security.polkit.enable = true;
+          security.rtkit.enable = true;
+
           programs.firefox.enable = true;
 
           # ProtonVPN's GUI talks to NetworkManager for the WireGuard/OpenVPN tunnels
